@@ -18,9 +18,6 @@
     <ClCompile Include="src\math.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\linear_algebra\vector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\shmo\math.hpp">
@@ -29,7 +26,7 @@
     <ClInclude Include="include\shmo\math\primitives.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\shmo\math\primitives\vector.hpp">
+    <ClInclude Include="include\shmo\math\primitives\vec.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

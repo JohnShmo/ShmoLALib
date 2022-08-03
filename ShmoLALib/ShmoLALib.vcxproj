@@ -160,11 +160,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\linear_algebra\vector.cpp" />
     <ClCompile Include="src\math.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\shmo\math\primitives\vector.hpp" />
+    <ClInclude Include="include\shmo\math\primitives\vec.hpp" />
     <ClInclude Include="include\shmo\math.hpp" />
     <ClInclude Include="include\shmo\math\primitives.hpp" />
   </ItemGroup>

@@ -3,11 +3,10 @@
 
 int main()
 {
-	shmo::math::vector2 vec1{2, 4};
-	shmo::math::vector2 vec2 = vec1 + vec1;
-	vec2.add({ 1, 2 });
+	shmo::math::vec2 v1{1, 1};
+	auto v2 = v1.normalized();
 
-	std::cout << vec2.x << '\n';
-	std::cout << vec2.y << '\n';
+	std::cout << v1.magnitude() << '\n';
+	std::cout << v2.magnitude() << '\n';
 	return 0;
 }
