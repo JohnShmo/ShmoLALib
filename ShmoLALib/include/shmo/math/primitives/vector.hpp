@@ -1,5 +1,5 @@
-#ifndef ___SHMO_LA_VEC_HPP___
-#define ___SHMO_LA_VEC_HPP___
+#ifndef ___SHMO_LA_VECIMPL_FL2_HPP___
+#define ___SHMO_LA_VECIMPL_FL2_HPP___
 
 #include <algorithm>
 #include <array>
@@ -49,10 +49,10 @@ namespace shmo::math
 		constexpr const float* end() const noexcept { return (&y) + 1; }
 		constexpr float* end() noexcept { return (&y) + 1; }
 
-		constexpr vector2& set(const vector2& vec) noexcept
+		constexpr vector2& set(const vector2& v) noexcept
 		{
-			x = vec.x;
-			y = vec.y;
+			x = v.x;
+			y = v.y;
 			return *this;
 		}
 		constexpr vector2& set(auto x, auto y) noexcept
@@ -61,42 +61,42 @@ namespace shmo::math
 			this->y = static_cast<float>(y);
 			return *this;
 		}
-		constexpr vector2& operator=(const vector2& vec) noexcept
+		constexpr vector2& operator=(const vector2& v) noexcept
 		{
-			return set(vec);
+			return set(v);
 		}
 
-		constexpr vector2& add(const vector2& vec) noexcept
+		constexpr vector2& add(const vector2& v) noexcept
 		{
-			x += vec.x;
-			y += vec.y;
+			x += v.x;
+			y += v.y;
 			return *this;
 		}
-		constexpr vector2& operator+=(const vector2& vec) noexcept
+		constexpr vector2& operator+=(const vector2& v) noexcept
 		{
-			return add(vec);
+			return add(v);
 		}
-		static constexpr vector2 operator+(const vector2& lhs, const vector2& rhs) noexcept
+		constexpr vector2 operator+(const vector2& v) noexcept
 		{
-			return { lhs.x + rhs.x, lhs.y + rhs.y };
+			return { x + v.x, y + v.y };
 		}
-		
-		constexpr vector2& subtract(const vector2& vec) noexcept
+
+		constexpr vector2& subtract(const vector2& v) noexcept
 		{
-			x -= vec.x;
-			y -= vec.y;
+			x -= v.x;
+			y -= v.y;
 			return *this;
 		}
-		constexpr vector2& operator-=(const vector2& vec) noexcept
+		constexpr vector2& operator-=(const vector2& v) noexcept
 		{
-			return subtract(vec);
+			return subtract(v);
 		}
-		static constexpr vector2 operator-(const vector2& lhs, const vector2& rhs) noexcept
+		constexpr vector2 operator-(const vector2& v) noexcept
 		{
-			return { lhs.x - rhs.x, lhs.y - rhs.y };
+			return { x - v.x, y - v.y };
 		}
 	};
-	
+
 	struct vector3
 	{
 		float x{}, y{}, z{};
@@ -105,18 +105,18 @@ namespace shmo::math
 
 		constexpr vector3() noexcept {}
 		constexpr vector3(const vector3& other) noexcept :
-			x(other.x), y(other.y), z (other.z)
-		{}				
+			x(other.x), y(other.y), z(other.z)
+		{}
 
 		constexpr vector3(auto v) noexcept :
 			x(static_cast<float>(v)), y(static_cast<float>(v))
-		{}				
+		{}
 		constexpr vector3(auto x, auto y) noexcept :
 			x(static_cast<float>(x)), y(static_cast<float>(y))
 		{}
 		constexpr vector3(auto x, auto y, auto z) noexcept :
 			x(static_cast<float>(x)), y(static_cast<float>(y)), z(static_cast<float>(z))
-		{}				
+		{}
 		constexpr vector3(const auto& other) noexcept :
 			x(static_cast<float>(other.x)), y(static_cast<float>(other.y)), z(static_cast<float>(other.z))
 		{}
@@ -139,18 +139,18 @@ namespace shmo::math
 
 		constexpr const float* data() const noexcept { return &x; }
 		constexpr float* data() noexcept { return &x; }
-		
+
 		constexpr const float* begin() const noexcept { return &x; }
 		constexpr float* begin() noexcept { return &x; }
-		
+
 		constexpr const float* end() const noexcept { return (&z) + 1; }
 		constexpr float* end() noexcept { return (&z) + 1; }
 
-		constexpr vector3& set(const vector3& vec) noexcept
+		constexpr vector3& set(const vector3& v) noexcept
 		{
-			x = vec.x;
-			y = vec.y;
-			z = vec.z;
+			x = v.x;
+			y = v.y;
+			z = v.z;
 			return *this;
 		}
 		constexpr vector3& set(auto x, auto y, auto z) noexcept
@@ -160,41 +160,41 @@ namespace shmo::math
 			this->z = static_cast<float>(z);
 			return *this;
 		}
-		constexpr vector3& operator=(const vector3& vec) noexcept
+		constexpr vector3& operator=(const vector3& v) noexcept
 		{
-			return set(vec);
+			return set(v);
 		}
 
-		constexpr vector3& add(const vector3& vec) noexcept
+		constexpr vector3& add(const vector3& v) noexcept
 		{
-			x += vec.x;
-			y += vec.y;
-			z += vec.z;
+			x += v.x;
+			y += v.y;
+			z += v.z;
 			return *this;
 		}
-		constexpr vector3& operator+=(const vector3& vec) noexcept
+		constexpr vector3& operator+=(const vector3& v) noexcept
 		{
-			return add(vec);
+			return add(v);
 		}
-		static constexpr vector3 operator+(const vector3& lhs, const vector3& rhs) noexcept
+		constexpr vector3 operator+(const vector3& v) noexcept
 		{
-			return { lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z };
+			return { x + v.x, y + v.y, z + v.z };
 		}
 
-		constexpr vector3& subtract(const vector3& vec) noexcept
+		constexpr vector3& subtract(const vector3& v) noexcept
 		{
-			x -= vec.x;
-			y -= vec.y;
-			z -= vec.z;
+			x -= v.x;
+			y -= v.y;
+			z -= v.z;
 			return *this;
 		}
-		constexpr vector3& operator-=(const vector3& vec) noexcept
+		constexpr vector3& operator-=(const vector3& v) noexcept
 		{
-			return subtract(vec);
+			return subtract(v);
 		}
-		static constexpr vector3 operator-(const vector3& lhs, const vector3& rhs) noexcept
+		constexpr vector3 operator-(const vector3& v) noexcept
 		{
-			return { lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z };
+			return { x - v.x, y - v.y, z - v.z };
 		}
 	};
 }

@@ -26,7 +26,10 @@
     <ClInclude Include="include\shmo\math.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\shmo\linear_algebra\vector.hpp">
+    <ClInclude Include="include\shmo\math\primitives.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shmo\math\primitives\vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
