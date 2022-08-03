@@ -1,5 +1,5 @@
-#ifndef ___SHMO_LA_VECIMPL_FL2_HPP___
-#define ___SHMO_LA_VECIMPL_FL2_HPP___
+#ifndef ___SHMO_LA_PRIMATIVES_VECTOR_HPP___
+#define ___SHMO_LA_PRIMATIVES_VECTOR_HPP___
 
 #include <algorithm>
 #include <array>
