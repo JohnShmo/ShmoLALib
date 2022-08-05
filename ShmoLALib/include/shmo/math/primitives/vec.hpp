@@ -160,17 +160,22 @@ namespace shmo::math
 				return divide(mag);
 			}
 		}
-		inline vec2 normalized() const noexcept
+		inline vec2 operator%(float f) const noexcept
 		{
 			float mag = magnitude();
 			if (mag == 0)
 			{
-				return { 1, 0 };
+				return { 1 * f, 0 };
 			}
 			else
 			{
-				return { x / mag, y / mag };
+				return { (x / mag) * f, (y / mag) * f };
 			}
+		}
+
+		constexpr float dot(vec2 v) const noexcept
+		{
+			return (x * v.x) + (y * v.y);
 		}
 	};
 
@@ -350,6 +355,11 @@ namespace shmo::math
 			{
 				return { x / mag, y / mag, z / mag };
 			}
+		}
+
+		constexpr float dot(vec3 v) const noexcept
+		{
+			return (x * v.x) + (y * v.y) + (z * v.z);
 		}
 	};
 
