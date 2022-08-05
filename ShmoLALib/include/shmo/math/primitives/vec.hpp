@@ -160,7 +160,25 @@ namespace shmo::math
 				return divide(mag);
 			}
 		}
-		inline vec2 operator%(float f) const noexcept
+		inline vec2 make_normalized() const noexcept
+		{
+			float mag = magnitude();
+			if (mag == 0)
+			{
+				return { 1, 0 };
+			}
+			else
+			{
+				return { x / mag, y / mag};
+			}
+		}
+
+		inline vec2& scale(float f) noexcept
+		{
+			normalize();
+			multiply(f);
+		}
+		inline vec2 make_scaled(float f) const noexcept
 		{
 			float mag = magnitude();
 			if (mag == 0)
@@ -172,10 +190,18 @@ namespace shmo::math
 				return { (x / mag) * f, (y / mag) * f };
 			}
 		}
+		inline vec2 operator%(float f) const noexcept
+		{
+			return make_scaled(f);
+		}
 
 		constexpr float dot(vec2 v) const noexcept
 		{
-			return (x * v.x) + (y * v.y);
+			return x * v.x + y * v.y;
+		}
+		constexpr float cross(vec2 v) const noexcept
+		{
+			return x * v.y - y * v.x;
 		}
 	};
 
@@ -322,7 +348,7 @@ namespace shmo::math
 
 		constexpr float magnitude_sqr() const noexcept
 		{
-			return x * x + y * y + z * z;
+			return (x * x) + (y * y) + (z * z);
 		}
 		inline float magnitude() const noexcept
 		{
@@ -344,7 +370,7 @@ namespace shmo::math
 				return divide(mag);
 			}
 		}
-		inline vec3 normalized() const noexcept
+		inline vec3 make_normalized() const noexcept
 		{
 			float mag = magnitude();
 			if (mag == 0)
@@ -357,9 +383,40 @@ namespace shmo::math
 			}
 		}
 
-		constexpr float dot(vec3 v) const noexcept
+		inline vec3& scale(float f) noexcept
+		{
+			normalize();
+			multiply(f);
+		}
+		inline vec3 make_scaled(float f) const noexcept
+		{
+			float mag = magnitude();
+			if (mag == 0)
+			{
+				return { 1 * f, 0, 0 };
+			}
+			else
+			{
+				return { (x / mag) * f, (y / mag) * f, (z / mag) * f};
+			}
+		}
+		inline vec3 operator%(float f) const noexcept
+		{
+			make_scaled(f);
+		}
+
+		constexpr float dot(const vec3& v) const noexcept
 		{
 			return (x * v.x) + (y * v.y) + (z * v.z);
+		}
+
+		constexpr vec3 cross(const vec3& v) const noexcept
+		{
+			vec3 result;
+			result.x = y * v.z - z * v.y;
+			result.y = -(x * v.z - z * v.x);
+			result.z = x * v.y - y * v.x;
+			return result;
 		}
 	};
 
