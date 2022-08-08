@@ -116,7 +116,7 @@ namespace shmo::math
 		{
 			return multiply(m);
 		}
-		constexpr mat3x3 operator*(const mat3x3& m)
+		constexpr mat3x3 operator*(const mat3x3& m) const
 		{
 			mat3x3 r = *this;
 			return r.multiply(m);
