@@ -21,7 +21,6 @@ namespace shmo::math
 		static constexpr size_t size() noexcept { return 9; }
 
 		constexpr mat3x3() noexcept {}
-
 		constexpr mat3x3(const mat3x3& other) noexcept :
 			c0r0(other.c0r0), c1r0(other.c1r0), c2r0(other.c2r0),
 			c0r1(other.c0r1), c1r1(other.c1r1), c2r1(other.c2r1),
@@ -197,6 +196,11 @@ namespace shmo::math
 			return shear(v.x, v.y);
 		}
 	};
+
+	constexpr std::array<double, 9> to_array(const mat3x3& m)
+	{
+		return { m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8] };
+	}
 
 	inline std::string to_string(const mat3x3& m)
 	{

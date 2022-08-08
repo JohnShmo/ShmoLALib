@@ -35,5 +35,8 @@
     <ClInclude Include="include\shmo\math\primitives\vec3.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\shmo\math\primitives\internal\math_primitive_includes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,12 +1,7 @@
 #ifndef ___SHMO_LA_PRIMATIVES_VECTOR2_HPP___
 #define ___SHMO_LA_PRIMATIVES_VECTOR2_HPP___
 
-#include <algorithm>
-#include <array>
-#include <cmath>
-#include <stdexcept>
-#include <format>
-#include <ostream>
+#include "internal/math_primitive_includes.h"
 
 namespace shmo::math
 {
@@ -154,46 +149,28 @@ namespace shmo::math
 				return divide(mag);
 			}
 		}
-		inline vec2 make_normalized() const noexcept
-		{
-			double mag = magnitude();
-			if (mag == 0)
-			{
-				return { 1, 0 };
-			}
-			else
-			{
-				return { x / mag, y / mag};
-			}
-		}
 
 		inline vec2& scale(double d) noexcept
 		{
 			normalize();
 			multiply(d);
 		}
-		inline vec2 make_scaled(double d) const noexcept
+
+		static inline vec2 normalize(const vec2& v)
 		{
-			double mag = magnitude();
-			if (mag == 0)
-			{
-				return { 1 * d, 0 };
-			}
-			else
-			{
-				return { (x / mag) * d, (y / mag) * d };
-			}
-		}
-		inline vec2 operator%(double d) const noexcept
-		{
-			return make_scaled(d);
+			return vec2(v).normalize();
 		}
 
-		constexpr double dot(vec2 v) const noexcept
+		static inline vec2 scale(const vec2& v, double d)
+		{
+			return vec2(v).scale(d);
+		}
+
+		constexpr double dot(const vec2& v) const noexcept
 		{
 			return x * v.x + y * v.y;
 		}
-		constexpr double cross(vec2 v) const noexcept
+		constexpr double cross(const vec2& v) const noexcept
 		{
 			return x * v.y - y * v.x;
 		}

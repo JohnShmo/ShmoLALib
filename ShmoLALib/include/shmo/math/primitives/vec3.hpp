@@ -164,39 +164,21 @@ namespace shmo::math
 				return divide(mag);
 			}
 		}
-		inline vec3 make_normalized() const noexcept
-		{
-			double mag = magnitude();
-			if (mag == 0)
-			{
-				return { 1, 0, 0 };
-			}
-			else
-			{
-				return { x / mag, y / mag, z / mag };
-			}
-		}
 
 		inline vec3& scale(double d) noexcept
 		{
 			normalize();
 			multiply(d);
 		}
-		inline vec3 make_scaled(double d) const noexcept
+
+		static inline vec3 normalize(const vec3& v)
 		{
-			double mag = magnitude();
-			if (mag == 0)
-			{
-				return { 1 * d, 0, 0 };
-			}
-			else
-			{
-				return { (x / mag) * d, (y / mag) * d, (z / mag) * d };
-			}
+			return vec3(v).normalize();
 		}
-		inline vec3 operator%(double d) const noexcept
+
+		static inline vec3 scale(const vec3& v, double d)
 		{
-			make_scaled(d);
+			return vec3(v).scale(d);
 		}
 
 		constexpr double dot(const vec3& v) const noexcept
