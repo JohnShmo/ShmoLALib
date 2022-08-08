@@ -164,9 +164,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\shmo\math\primitives\mat3x3.hpp" />
-    <ClInclude Include="include\shmo\math\primitives\vec.hpp" />
+    <ClInclude Include="include\shmo\math\primitives\vec2.hpp" />
     <ClInclude Include="include\shmo\math.hpp" />
     <ClInclude Include="include\shmo\math\primitives.hpp" />
+    <ClInclude Include="include\shmo\math\primitives\vec3.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

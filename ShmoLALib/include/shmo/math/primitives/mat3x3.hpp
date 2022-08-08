@@ -1,7 +1,7 @@
 #ifndef ___SHMO_LA_PRIMATIVES_MAT3X3_HPP___
 #define ___SHMO_LA_PRIMATIVES_MAT3X3_HPP___
 
-#include "vec.hpp"
+#include "vec2.hpp"
 
 namespace shmo::math
 {
@@ -131,6 +131,7 @@ namespace shmo::math
 				0, 0, 1
 			};
 		}
+
 		static constexpr mat3x3 translation(auto x, auto y) noexcept
 		{
 			return
@@ -140,6 +141,11 @@ namespace shmo::math
 				0, 0, 1
 			};
 		}
+		static constexpr mat3x3 translation(const vec2& v) noexcept
+		{
+			return translation(v.x, v.y);
+		}
+
 		static constexpr mat3x3 reflection() noexcept
 		{
 			return
@@ -149,6 +155,7 @@ namespace shmo::math
 				0, 0, 1
 			};
 		}
+
 		static constexpr mat3x3 scale(auto x, auto y) noexcept
 		{
 			return
@@ -158,6 +165,11 @@ namespace shmo::math
 				0, 0, 1
 			};
 		}
+		static constexpr mat3x3 scale(const vec2& v) noexcept
+		{
+			return scale(v.x, v.y);
+		}
+
 		static inline mat3x3 rotation(auto theta) noexcept
 		{
 			double c = std::cos(static_cast<double>(theta));
@@ -170,6 +182,7 @@ namespace shmo::math
 				0, 0, 1
 			};
 		}
+
 		static constexpr mat3x3 shear(auto x, auto y) noexcept
 		{
 			return
@@ -178,6 +191,10 @@ namespace shmo::math
 				y, 1, 0,
 				0, 0, 1
 			};
+		}
+		static constexpr mat3x3 shear(const vec2& v) noexcept
+		{
+			return shear(v.x, v.y);
 		}
 	};
 
