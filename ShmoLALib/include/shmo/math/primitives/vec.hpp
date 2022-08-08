@@ -12,7 +12,7 @@ namespace shmo::math
 {
 	struct vec2
 	{
-		float x{}, y{};
+		double x{}, y{};
 
 		static constexpr size_t size() noexcept { return 2; }
 
@@ -22,34 +22,34 @@ namespace shmo::math
 		{}
 
 		constexpr vec2(auto v) noexcept :
-			x(static_cast<float>(v)), y(static_cast<float>(v))
+			x(static_cast<double>(v)), y(static_cast<double>(v))
 		{}
 		constexpr vec2(auto x, auto y) noexcept :
-			x(static_cast<float>(x)), y(static_cast<float>(y))
+			x(static_cast<double>(x)), y(static_cast<double>(y))
 		{}
 		constexpr vec2(const auto& other) noexcept :
-			x(static_cast<float>(other.x)), y(static_cast<float>(other.y))
+			x(static_cast<double>(other.x)), y(static_cast<double>(other.y))
 		{}
 
-		constexpr float operator[](size_t index) const noexcept
+		constexpr double operator[](size_t index) const noexcept
 		{
 			if (index % 2 == 0) return x;
 			else return y;
 		}
-		constexpr float& operator[](size_t index) noexcept
+		constexpr double& operator[](size_t index) noexcept
 		{
 			if (index % 2 == 0) return x;
 			else return y;
 		}
 
-		constexpr const float* data() const noexcept { return &x; }
-		constexpr float* data() noexcept { return &x; }
+		constexpr const double* data() const noexcept { return &x; }
+		constexpr double* data() noexcept { return &x; }
 
-		constexpr const float* begin() const noexcept { return &x; }
-		constexpr float* begin() noexcept { return &x; }
+		constexpr const double* begin() const noexcept { return &x; }
+		constexpr double* begin() noexcept { return &x; }
 
-		constexpr const float* end() const noexcept { return (&y) + 1; }
-		constexpr float* end() noexcept { return (&y) + 1; }
+		constexpr const double* end() const noexcept { return (&y) + 1; }
+		constexpr double* end() noexcept { return (&y) + 1; }
 
 		constexpr vec2& set(const vec2& v) noexcept
 		{
@@ -59,8 +59,8 @@ namespace shmo::math
 		}
 		constexpr vec2& set(auto x, auto y) noexcept
 		{
-			this->x = static_cast<float>(x);
-			this->y = static_cast<float>(y);
+			this->x = static_cast<double>(x);
+			this->y = static_cast<double>(y);
 			return *this;
 		}
 		constexpr vec2& operator=(const vec2& v) noexcept
@@ -107,48 +107,48 @@ namespace shmo::math
 			return { x - v.x, y - v.y };
 		}
 
-		constexpr vec2& multiply(float f) noexcept
+		constexpr vec2& multiply(double d) noexcept
 		{
-			x *= f;
-			y *= f;
+			x *= d;
+			y *= d;
 			return *this;
 		}
-		constexpr vec2& operator*=(float f) noexcept
+		constexpr vec2& operator*=(double d) noexcept
 		{
-			return multiply(f);
+			return multiply(d);
 		}
-		constexpr vec2 operator*(float f) const noexcept
+		constexpr vec2 operator*(double d) const noexcept
 		{
-			return { x * f, y * f };
+			return { x * d, y * d };
 		}
 		
-		constexpr vec2& divide(float f) noexcept
+		constexpr vec2& divide(double d) noexcept
 		{
-			x /= f;
-			y /= f;
+			x /= d;
+			y /= d;
 			return *this;
 		}
-		constexpr vec2& operator/=(float f) noexcept
+		constexpr vec2& operator/=(double d) noexcept
 		{
-			return divide(f);
+			return divide(d);
 		}
-		constexpr vec2 operator/(float f) const noexcept
+		constexpr vec2 operator/(double d) const noexcept
 		{
-			return { x / f, y / f };
+			return { x / d, y / d };
 		}
 
-		constexpr float magnitude_sqr() const noexcept
+		constexpr double magnitude_sqr() const noexcept
 		{
 			return x * x + y * y;
 		}
-		inline float magnitude() const noexcept
+		inline double magnitude() const noexcept
 		{
-			return std::sqrtf(magnitude_sqr());
+			return std::sqrt(magnitude_sqr());
 		}
 
 		inline vec2& normalize() noexcept
 		{
-			float mag = magnitude();
+			double mag = magnitude();
 			if (mag == 0)
 			{
 				x = 1;
@@ -162,7 +162,7 @@ namespace shmo::math
 		}
 		inline vec2 make_normalized() const noexcept
 		{
-			float mag = magnitude();
+			double mag = magnitude();
 			if (mag == 0)
 			{
 				return { 1, 0 };
@@ -173,33 +173,33 @@ namespace shmo::math
 			}
 		}
 
-		inline vec2& scale(float f) noexcept
+		inline vec2& scale(double d) noexcept
 		{
 			normalize();
-			multiply(f);
+			multiply(d);
 		}
-		inline vec2 make_scaled(float f) const noexcept
+		inline vec2 make_scaled(double d) const noexcept
 		{
-			float mag = magnitude();
+			double mag = magnitude();
 			if (mag == 0)
 			{
-				return { 1 * f, 0 };
+				return { 1 * d, 0 };
 			}
 			else
 			{
-				return { (x / mag) * f, (y / mag) * f };
+				return { (x / mag) * d, (y / mag) * d };
 			}
 		}
-		inline vec2 operator%(float f) const noexcept
+		inline vec2 operator%(double d) const noexcept
 		{
-			return make_scaled(f);
+			return make_scaled(d);
 		}
 
-		constexpr float dot(vec2 v) const noexcept
+		constexpr double dot(vec2 v) const noexcept
 		{
 			return x * v.x + y * v.y;
 		}
-		constexpr float cross(vec2 v) const noexcept
+		constexpr double cross(vec2 v) const noexcept
 		{
 			return x * v.y - y * v.x;
 		}
@@ -207,7 +207,7 @@ namespace shmo::math
 
 	struct vec3
 	{
-		float x{}, y{}, z{};
+		double x{}, y{}, z{};
 
 		static constexpr size_t size() noexcept { return 3; }
 
@@ -217,42 +217,42 @@ namespace shmo::math
 		{}
 
 		constexpr vec3(auto v) noexcept :
-			x(static_cast<float>(v)), y(static_cast<float>(v))
+			x(static_cast<double>(v)), y(static_cast<double>(v))
 		{}
 		constexpr vec3(auto x, auto y) noexcept :
-			x(static_cast<float>(x)), y(static_cast<float>(y))
+			x(static_cast<double>(x)), y(static_cast<double>(y))
 		{}
 		constexpr vec3(auto x, auto y, auto z) noexcept :
-			x(static_cast<float>(x)), y(static_cast<float>(y)), z(static_cast<float>(z))
+			x(static_cast<double>(x)), y(static_cast<double>(y)), z(static_cast<double>(z))
 		{}
 		constexpr vec3(const auto& other) noexcept :
-			x(static_cast<float>(other.x)), y(static_cast<float>(other.y)), z(static_cast<float>(other.z))
+			x(static_cast<double>(other.x)), y(static_cast<double>(other.y)), z(static_cast<double>(other.z))
 		{}
 		constexpr vec3(const vec2& other) noexcept :
 			x(other.x), y(other.y)
 		{}
 
-		constexpr float operator[](size_t index) const noexcept
+		constexpr double operator[](size_t index) const noexcept
 		{
 			if (index % 3 == 0) return x;
 			else if (index % 3 == 1) return y;
 			else return z;
 		}
-		constexpr float& operator[](size_t index) noexcept
+		constexpr double& operator[](size_t index) noexcept
 		{
 			if (index % 3 == 0) return x;
 			else if (index % 3 == 1) return y;
 			else return z;
 		}
 
-		constexpr const float* data() const noexcept { return &x; }
-		constexpr float* data() noexcept { return &x; }
+		constexpr const double* data() const noexcept { return &x; }
+		constexpr double* data() noexcept { return &x; }
 
-		constexpr const float* begin() const noexcept { return &x; }
-		constexpr float* begin() noexcept { return &x; }
+		constexpr const double* begin() const noexcept { return &x; }
+		constexpr double* begin() noexcept { return &x; }
 
-		constexpr const float* end() const noexcept { return (&z) + 1; }
-		constexpr float* end() noexcept { return (&z) + 1; }
+		constexpr const double* end() const noexcept { return (&z) + 1; }
+		constexpr double* end() noexcept { return (&z) + 1; }
 
 		constexpr vec3& set(const vec3& v) noexcept
 		{
@@ -263,9 +263,9 @@ namespace shmo::math
 		}
 		constexpr vec3& set(auto x, auto y, auto z) noexcept
 		{
-			this->x = static_cast<float>(x);
-			this->y = static_cast<float>(y);
-			this->z = static_cast<float>(z);
+			this->x = static_cast<double>(x);
+			this->y = static_cast<double>(y);
+			this->z = static_cast<double>(z);
 			return *this;
 		}
 		constexpr vec3& operator=(const vec3& v) noexcept
@@ -314,50 +314,50 @@ namespace shmo::math
 			return { x - v.x, y - v.y, z - v.z };
 		}
 
-		constexpr vec3& multiply(float f) noexcept
+		constexpr vec3& multiply(double d) noexcept
 		{
-			x *= f;
-			y *= f;
-			z *= f;
+			x *= d;
+			y *= d;
+			z *= d;
 			return *this;
 		}
-		constexpr vec3& operator*=(float f) noexcept
+		constexpr vec3& operator*=(double d) noexcept
 		{
-			return multiply(f);
+			return multiply(d);
 		}
-		constexpr vec3 operator*(float f) const noexcept
+		constexpr vec3 operator*(double d) const noexcept
 		{
-			return { x * f, y * f, z * f };
+			return { x * d, y * d, z * d };
 		}
 
-		constexpr vec3& divide(float f) noexcept
+		constexpr vec3& divide(double d) noexcept
 		{
-			x /= f;
-			y /= f;
-			z /= f;
+			x /= d;
+			y /= d;
+			z /= d;
 			return *this;
 		}
-		constexpr vec3& operator/=(float f) noexcept
+		constexpr vec3& operator/=(double d) noexcept
 		{
-			return divide(f);
+			return divide(d);
 		}
-		constexpr vec3 operator/(float f) const noexcept
+		constexpr vec3 operator/(double d) const noexcept
 		{
-			return { x / f, y / f, z / f };
+			return { x / d, y / d, z / d };
 		}
 
-		constexpr float magnitude_sqr() const noexcept
+		constexpr double magnitude_sqr() const noexcept
 		{
 			return (x * x) + (y * y) + (z * z);
 		}
-		inline float magnitude() const noexcept
+		inline double magnitude() const noexcept
 		{
-			return std::sqrtf(magnitude_sqr());
+			return std::sqrt(magnitude_sqr());
 		}
 
 		inline vec3& normalize() noexcept
 		{
-			float mag = magnitude();
+			double mag = magnitude();
 			if (mag == 0)
 			{
 				x = 1;
@@ -372,7 +372,7 @@ namespace shmo::math
 		}
 		inline vec3 make_normalized() const noexcept
 		{
-			float mag = magnitude();
+			double mag = magnitude();
 			if (mag == 0)
 			{
 				return { 1, 0, 0 };
@@ -383,29 +383,29 @@ namespace shmo::math
 			}
 		}
 
-		inline vec3& scale(float f) noexcept
+		inline vec3& scale(double d) noexcept
 		{
 			normalize();
-			multiply(f);
+			multiply(d);
 		}
-		inline vec3 make_scaled(float f) const noexcept
+		inline vec3 make_scaled(double d) const noexcept
 		{
-			float mag = magnitude();
+			double mag = magnitude();
 			if (mag == 0)
 			{
-				return { 1 * f, 0, 0 };
+				return { 1 * d, 0, 0 };
 			}
 			else
 			{
-				return { (x / mag) * f, (y / mag) * f, (z / mag) * f};
+				return { (x / mag) * d, (y / mag) * d, (z / mag) * d};
 			}
 		}
-		inline vec3 operator%(float f) const noexcept
+		inline vec3 operator%(double d) const noexcept
 		{
-			make_scaled(f);
+			make_scaled(d);
 		}
 
-		constexpr float dot(const vec3& v) const noexcept
+		constexpr double dot(const vec3& v) const noexcept
 		{
 			return (x * v.x) + (y * v.y) + (z * v.z);
 		}
@@ -420,12 +420,12 @@ namespace shmo::math
 		}
 	};
 
-	constexpr std::array<float, 2> to_array(const vec2& v)
+	constexpr std::array<double, 2> to_array(const vec2& v)
 	{
 		return { v.x, v.y };
 	}
 	
-	constexpr std::array<float, 3> to_array(const vec3& v)
+	constexpr std::array<double, 3> to_array(const vec3& v)
 	{
 		return { v.x, v.y, v.z };
 	}
