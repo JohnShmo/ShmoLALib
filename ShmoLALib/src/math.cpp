@@ -3,13 +3,17 @@
 
 int main()
 {
-	using shmo::math::vec2;
+	using shmo::math::mat3x3;
 
-	vec2 v1 = { 1, 0 };
-	vec2 v2 = v1.make_normalized();
+	mat3x3 trn = mat3x3::translation(1, 1);
+	mat3x3 rot = mat3x3::rotation(3.14159265359);
+	mat3x3 scl = mat3x3::scale(2, 2);
 
-	std::cout << v1 << '\n';
-	std::cout << v2 << '\n';
+	mat3x3 result = mat3x3::identity();
+
+	result.multiply(trn).multiply(rot).multiply(scl);
+
+	std::cout << result << '\n';
 
 	return 0;
 }

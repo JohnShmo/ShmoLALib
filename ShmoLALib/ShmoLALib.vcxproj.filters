@@ -29,5 +29,8 @@
     <ClInclude Include="include\shmo\math\primitives\vec.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\shmo\math\primitives\mat3x3.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

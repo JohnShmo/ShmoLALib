@@ -432,12 +432,12 @@ namespace shmo::math
 	
 	inline std::string to_string(const vec2& v)
 	{
-		return std::format("( x : {}, y : {} )", v.x, v.y);
+		return std::format("( {:10f} {:10f} )", v.x, v.y);
 	}
 	
 	inline std::string to_string(const vec3& v)
 	{
-		return std::format("( x : {}, y : {}, z : {} )", v.x, v.y, v.z);
+		return std::format("( {:10f} {:10f} {:10f} )", v.x, v.y, v.z);
 	}
 
 	inline std::ostream& operator<<(std::ostream& os, const vec2& v)
