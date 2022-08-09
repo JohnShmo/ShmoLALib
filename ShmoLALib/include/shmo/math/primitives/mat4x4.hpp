@@ -379,13 +379,41 @@ namespace shmo::math
 			};
 		}
 
-		static inline mat4x4 rotation(auto yaw, auto pitch, auto roll)
+		static inline mat4x4 rotation(auto yaw, auto pitch, auto roll) noexcept
 		{
 			return rotation_roll(roll).multiply(rotation_pitch(pitch)).multiply(rotation_yaw(yaw));
 		}
-		static inline mat4x4 rotation(const vec3& v)
+		static inline mat4x4 rotation(const vec3& v) noexcept
 		{
 			return rotation(v.x, v.y, v.z);
+		}
+
+		static constexpr mat4x4 orthographic_projection(auto left, auto right, auto bottom, auto top, auto near, auto far) noexcept
+		{
+			double rml = static_cast<double>(right) - static_cast<double>(left);
+			double rpl = static_cast<double>(right) + static_cast<double>(left);
+
+			double tmb = static_cast<double>(top) - static_cast<double>(bottom);
+			double tpb = static_cast<double>(top) + static_cast<double>(bottom);
+
+			double fmn = static_cast<double>(far) - static_cast<double>(near);
+			double fpn = static_cast<double>(far) + static_cast<double>(near);
+
+			double a = 2.0 / rml;
+			double b = 2.0 / tmb;
+			double c = -2.0 / fmn;
+
+			double d = -(rpl / rml);
+			double e = -(tpb / tmb);
+			double f = -(fpn / fmn);
+
+			return
+			{
+				a, 0, 0, d,
+				0, b, 0, e,
+				0, 0, c, f,
+				0, 0, 0, 1
+			};
 		}
 
 	};
