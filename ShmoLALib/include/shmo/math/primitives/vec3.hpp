@@ -171,12 +171,12 @@ namespace shmo::math
 			multiply(d);
 		}
 
-		static inline vec3 normalize(const vec3& v)
+		static inline vec3 normalize(const vec3& v) noexcept
 		{
 			return vec3(v).normalize();
 		}
 
-		static inline vec3 scale(const vec3& v, double d)
+		static inline vec3 scale(const vec3& v, double d) noexcept
 		{
 			return vec3(v).scale(d);
 		}

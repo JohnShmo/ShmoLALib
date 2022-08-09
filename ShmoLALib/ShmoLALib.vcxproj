@@ -163,7 +163,8 @@
     <ClCompile Include="src\math.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\shmo\math\primitives\internal\math_primitive_includes.h" />
+    <ClInclude Include="include\shmo\math\constants.hpp" />
+    <ClInclude Include="include\shmo\math\primitives\internal\math_primitive_includes.hpp" />
     <ClInclude Include="include\shmo\math\primitives\mat3x3.hpp" />
     <ClInclude Include="include\shmo\math\primitives\vec2.hpp" />
     <ClInclude Include="include\shmo\math.hpp" />

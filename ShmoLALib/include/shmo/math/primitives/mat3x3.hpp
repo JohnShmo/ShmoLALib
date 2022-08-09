@@ -107,18 +107,57 @@ namespace shmo::math
 			r.c2r1 = (c0r1 * m.c2r0) + (c1r1 * m.c2r1) + (c2r1 * m.c2r2);
 			r.c2r2 = (c0r2 * m.c2r0) + (c1r2 * m.c2r1) + (c2r2 * m.c2r2);
 
-			set(r);
-
-			return *this;
+			return set(r);
 		}
-		constexpr mat3x3& operator*=(const mat3x3& m)
+		constexpr mat3x3& operator*=(const mat3x3& m) noexcept
 		{
 			return multiply(m);
 		}
-		constexpr mat3x3 operator*(const mat3x3& m) const
+		constexpr mat3x3 operator*(const mat3x3& m) const noexcept
 		{
 			mat3x3 r = *this;
 			return r.multiply(m);
+		}
+
+		constexpr vec2 transform(const vec2& v) noexcept
+		{
+			double x, y;
+
+			x = (c0r0 * v.x) + (c1r0 * v.y) + (c2r0);
+			y = (c0r1 * v.x) + (c1r1 * v.y) + (c2r1);
+			
+			return { x, y };
+		}
+
+		constexpr mat3x3& invert() noexcept
+		{
+			mat3x3 r;
+
+			double det =
+				c0r0 * (c1r1 * c2r2 - c1r2 * c2r1) -
+				c1r0 * (c0r1 * c2r2 - c2r1 * c0r2) +
+				c2r0 * (c0r1 * c1r2 - c1r1 * c0r2);
+
+			double idet = 1.0 / det;
+
+			r.c0r0 = (c1r1 * c2r2 - c1r2 * c2r1) * idet;
+			r.c1r0 = (c2r0 * c1r2 - c1r0 * c2r2) * idet;
+			r.c2r0 = (c1r0 * c2r1 - c2r0 * c1r1) * idet;
+
+			r.c0r1 = (c2r1 * c0r2 - c0r1 * c2r2) * idet;
+			r.c1r1 = (c0r0 * c2r2 - c2r0 * c0r2) * idet;
+			r.c2r1 = (c0r1 * c2r0 - c0r0 * c2r1) * idet;
+
+			r.c0r2 = (c0r1 * c1r2 - c0r2 * c1r1) * idet;
+			r.c1r2 = (c0r2 * c1r0 - c0r0 * c1r2) * idet;
+			r.c2r2 = (c0r0 * c1r1 - c0r1 * c1r0) * idet;
+
+			return set(r);
+		}
+
+		constexpr mat3x3 operator!()
+		{
+			return mat3x3(*this).invert();
 		}
 
 		static constexpr mat3x3 identity() noexcept

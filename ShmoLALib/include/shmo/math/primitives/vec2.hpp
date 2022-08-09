@@ -1,7 +1,7 @@
 #ifndef ___SHMO_LA_PRIMATIVES_VECTOR2_HPP___
 #define ___SHMO_LA_PRIMATIVES_VECTOR2_HPP___
 
-#include "internal/math_primitive_includes.h"
+#include "internal/math_primitive_includes.hpp"
 
 namespace shmo::math
 {
@@ -156,12 +156,24 @@ namespace shmo::math
 			multiply(d);
 		}
 
-		static inline vec2 normalize(const vec2& v)
+		constexpr vec2& negate() noexcept
+		{
+			x = -x;
+			y = -y;
+			return *this;
+		}
+
+		constexpr vec2 operator-() noexcept
+		{
+			return vec2(*this).negate();
+		}
+
+		static inline vec2 normalize(const vec2& v) noexcept
 		{
 			return vec2(v).normalize();
 		}
 
-		static inline vec2 scale(const vec2& v, double d)
+		static inline vec2 scale(const vec2& v, double d) noexcept
 		{
 			return vec2(v).scale(d);
 		}
