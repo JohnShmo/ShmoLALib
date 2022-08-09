@@ -154,9 +154,6 @@ namespace shmo::math
 			double mag = magnitude();
 			if (mag == 0)
 			{
-				x = 1;
-				y = 0;
-				z = 0;
 				return *this;
 			}
 			else
