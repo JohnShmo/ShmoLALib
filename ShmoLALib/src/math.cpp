@@ -5,26 +5,24 @@ int main()
 {
 	using shmo::math::mat3x3;
 	using shmo::math::vec2;
+	using shmo::math::mat4x4;
+	using shmo::math::vec3;
 
-	mat3x3 trn = mat3x3::translation(1, 0);
-	mat3x3 rot = mat3x3::rotation(0);
-	mat3x3 scl = mat3x3::scale(1, 1);
+	mat4x4 trn = mat4x4::translation(4, 4, 4);
+	mat4x4 scl = mat4x4::scale(1, 1, 1);
 
-	mat3x3 result = trn * rot * scl;
-	mat3x3 inverse = !result;
+	mat4x4 res = trn * scl;
+	mat4x4 inv = !res;
 
-	std::cout << result << '\n' << '\n';
-	std::cout << inverse << '\n' << '\n';
+	vec3 v { 0, 0, 0 };
 
-	vec2 v1 = { -5, 1 };
+	v = res.forward(v);
 
-	v1 = result.transform(v1);
+	std::cout << v << '\n';
 
-	std::cout << v1 << '\n';
+	v = inv.forward(v);
 
-	v1 = inverse.transform(v1);
-
-	std::cout << v1 << '\n';
+	std::cout << v << '\n';
 
 	return 0;
 }

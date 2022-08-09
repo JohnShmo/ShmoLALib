@@ -119,7 +119,7 @@ namespace shmo::math
 			return r.multiply(m);
 		}
 
-		constexpr vec2 transform(const vec2& v) noexcept
+		constexpr vec2 forward(const vec2& v) noexcept
 		{
 			double x, y;
 

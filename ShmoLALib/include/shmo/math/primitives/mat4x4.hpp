@@ -101,25 +101,25 @@ namespace shmo::math
 		{
 			mat4x4 r;
 
-			r.c0r0 = (c0r0 * m.c0r0) + (c1r0 * m.c0r1) + (c2r0 * m.c0r2);
-			r.c0r1 = (c0r1 * m.c0r0) + (c1r1 * m.c0r1) + (c2r1 * m.c0r2);
-			r.c0r2 = (c0r2 * m.c0r0) + (c1r2 * m.c0r1) + (c2r2 * m.c0r2);
-			r.c0r3 = (c0r3 * m.c0r0) + (c1r3 * m.c0r1) + (c2r3 * m.c0r2);
+			r.c0r0 = (c0r0 * m.c0r0) + (c1r0 * m.c0r1) + (c2r0 * m.c0r2) + (c3r0 * m.c0r3);
+			r.c0r1 = (c0r1 * m.c0r0) + (c1r1 * m.c0r1) + (c2r1 * m.c0r2) + (c3r1 * m.c0r3);
+			r.c0r2 = (c0r2 * m.c0r0) + (c1r2 * m.c0r1) + (c2r2 * m.c0r2) + (c3r2 * m.c0r3);
+			r.c0r3 = (c0r3 * m.c0r0) + (c1r3 * m.c0r1) + (c2r3 * m.c0r2) + (c3r3 * m.c0r3);
 
-			r.c1r0 = (c0r0 * m.c1r0) + (c1r0 * m.c1r1) + (c2r0 * m.c1r2);
-			r.c1r1 = (c0r1 * m.c1r0) + (c1r1 * m.c1r1) + (c2r1 * m.c1r2);
-			r.c1r2 = (c0r2 * m.c1r0) + (c1r2 * m.c1r1) + (c2r2 * m.c1r2);
-			r.c1r3 = (c0r3 * m.c1r0) + (c1r3 * m.c1r1) + (c2r3 * m.c1r2);
+			r.c1r0 = (c0r0 * m.c1r0) + (c1r0 * m.c1r1) + (c2r0 * m.c1r2) + (c3r0 * m.c1r3);
+			r.c1r1 = (c0r1 * m.c1r0) + (c1r1 * m.c1r1) + (c2r1 * m.c1r2) + (c3r1 * m.c1r3);
+			r.c1r2 = (c0r2 * m.c1r0) + (c1r2 * m.c1r1) + (c2r2 * m.c1r2) + (c3r2 * m.c1r3);
+			r.c1r3 = (c0r3 * m.c1r0) + (c1r3 * m.c1r1) + (c2r3 * m.c1r2) + (c3r3 * m.c1r3);
 
-			r.c2r0 = (c0r0 * m.c2r0) + (c1r0 * m.c2r1) + (c2r0 * m.c2r2);
-			r.c2r1 = (c0r1 * m.c2r0) + (c1r1 * m.c2r1) + (c2r1 * m.c2r2);
-			r.c2r2 = (c0r2 * m.c2r0) + (c1r2 * m.c2r1) + (c2r2 * m.c2r2);
-			r.c2r3 = (c0r3 * m.c2r0) + (c1r3 * m.c2r1) + (c2r3 * m.c2r2);
-				
-			r.c3r0 = (c0r0 * m.c3r0) + (c1r0 * m.c3r1) + (c2r0 * m.c3r2);
-			r.c3r1 = (c0r1 * m.c3r0) + (c1r1 * m.c3r1) + (c2r1 * m.c3r2);
-			r.c3r2 = (c0r2 * m.c3r0) + (c1r2 * m.c3r1) + (c2r2 * m.c3r2);
-			r.c3r3 = (c0r3 * m.c3r0) + (c1r3 * m.c3r1) + (c2r3 * m.c3r2);
+			r.c2r0 = (c0r0 * m.c2r0) + (c1r0 * m.c2r1) + (c2r0 * m.c2r2) + (c3r0 * m.c2r3);
+			r.c2r1 = (c0r1 * m.c2r0) + (c1r1 * m.c2r1) + (c2r1 * m.c2r2) + (c3r1 * m.c2r3);
+			r.c2r2 = (c0r2 * m.c2r0) + (c1r2 * m.c2r1) + (c2r2 * m.c2r2) + (c3r2 * m.c2r3);
+			r.c2r3 = (c0r3 * m.c2r0) + (c1r3 * m.c2r1) + (c2r3 * m.c2r2) + (c3r3 * m.c2r3);
+
+			r.c3r0 = (c0r0 * m.c3r0) + (c1r0 * m.c3r1) + (c2r0 * m.c3r2) + (c3r0 * m.c3r3);
+			r.c3r1 = (c0r1 * m.c3r0) + (c1r1 * m.c3r1) + (c2r1 * m.c3r2) + (c3r1 * m.c3r3);
+			r.c3r2 = (c0r2 * m.c3r0) + (c1r2 * m.c3r1) + (c2r2 * m.c3r2) + (c3r2 * m.c3r3);
+			r.c3r3 = (c0r3 * m.c3r0) + (c1r3 * m.c3r1) + (c2r3 * m.c3r2) + (c3r3 * m.c3r3);
 
 			return set(r);
 		}
@@ -129,11 +129,10 @@ namespace shmo::math
 		}
 		constexpr mat4x4 operator*(const mat4x4& m) const noexcept
 		{
-			mat4x4 r = *this;
-			return r.multiply(m);
+			return mat4x4(*this).multiply(m);
 		}
 
-		constexpr vec3 transform(const vec3& v) noexcept
+		constexpr vec3 forward(const vec3& v) noexcept
 		{
 			double x, y, z;
 
@@ -284,10 +283,10 @@ namespace shmo::math
 
 			for (i = 0; i < size(); i++)
 			{
-				r[i] = inv[i] * det;
+				v[i] = inv[i] * det;
 			}
 
-			return set(r);
+			return *this;
 		}
 
 		constexpr mat4x4 operator!()
