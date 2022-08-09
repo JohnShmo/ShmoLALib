@@ -41,5 +41,8 @@
     <ClInclude Include="include\shmo\math\constants.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\shmo\math\primitives\mat4x4.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
