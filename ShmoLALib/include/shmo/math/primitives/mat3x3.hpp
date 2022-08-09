@@ -115,8 +115,7 @@ namespace shmo::math
 		}
 		constexpr mat3x3 operator*(const mat3x3& m) const noexcept
 		{
-			mat3x3 r = *this;
-			return r.multiply(m);
+			return mat3x3(*this).multiply(m);
 		}
 
 		constexpr vec2 forward(const vec2& v) noexcept

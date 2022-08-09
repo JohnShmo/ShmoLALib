@@ -337,7 +337,7 @@ namespace shmo::math
 			return scale(v.x, v.y, v.z);
 		}
 
-		static inline mat4x4 rotation_x(auto theta) noexcept
+		static inline mat4x4 rotation_yaw(auto theta) noexcept
 		{
 			double c = std::cos(static_cast<double>(theta));
 			double s = std::sin(static_cast<double>(theta));
@@ -351,7 +351,7 @@ namespace shmo::math
 			};
 		}
 		
-		static inline mat4x4 rotation_y(auto theta) noexcept
+		static inline mat4x4 rotation_pitch(auto theta) noexcept
 		{
 			double c = std::cos(static_cast<double>(theta));
 			double s = std::sin(static_cast<double>(theta));
@@ -365,7 +365,7 @@ namespace shmo::math
 			};
 		}
 		
-		static inline mat4x4 rotation_z(auto theta) noexcept
+		static inline mat4x4 rotation_roll(auto theta) noexcept
 		{
 			double c = std::cos(static_cast<double>(theta));
 			double s = std::sin(static_cast<double>(theta));
@@ -377,6 +377,15 @@ namespace shmo::math
 				0, 0, 1, 0,
 				0, 0, 0, 1
 			};
+		}
+
+		static inline mat4x4 rotation(auto yaw, auto pitch, auto roll)
+		{
+			return rotation_roll(roll).multiply(rotation_pitch(pitch)).multiply(rotation_yaw(yaw));
+		}
+		static inline mat4x4 rotation(const vec3& v)
+		{
+			return rotation(v.x, v.y, v.z);
 		}
 
 	};
