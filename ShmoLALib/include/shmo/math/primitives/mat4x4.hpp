@@ -152,7 +152,7 @@ namespace shmo::math
 			mat4x4 r;
 			double inv[16]{}, det, idet;
 			size_t i;
-
+			
 			inv[0] = 
 				v[5] * v[10] * v[15] -
 				v[5] * v[11] * v[14] -
@@ -287,7 +287,7 @@ namespace shmo::math
 
 			for (i = 0; i < size(); i++)
 			{
-				v[i] = inv[i] * det;
+				v[i] = inv[i] * idet;
 			}
 
 			return *this;

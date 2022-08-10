@@ -6,11 +6,11 @@ int main()
 	using namespace shmo::math;
 
 	mat4x4 trn, rot, scl, fin, inv;
-	vec3 v = { 0, 0, 0 };
+	vec3 v = { 1, 0, 0 };
 
-	trn = mat4x4::translation(5, 0, 0);
-	rot = mat4x4::rotation(0, 0, 0);
-	scl = mat4x4::scale(1, 1, 1);
+	trn = mat4x4::translation(5, 2, 5);
+	rot = mat4x4::rotation(4, 3, 7);
+	scl = mat4x4::scale(4, 1, 1);
 
 	fin = trn * rot * scl;
 	inv = !fin;
