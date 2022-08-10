@@ -3,5 +3,6 @@
 
 #include "math/primitives.hpp"
 #include "math/constants.hpp"
+#include "math/color_utils.hpp"
 
 #endif
