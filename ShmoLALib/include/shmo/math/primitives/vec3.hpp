@@ -124,6 +124,22 @@ namespace shmo::math
 			return { x * d, y * d, z * d };
 		}
 
+		constexpr vec3& multiply(const vec3& v) noexcept
+		{
+			x *= v.x;
+			y *= v.y;
+			z *= v.z;
+			return *this;
+		}
+		constexpr vec3& operator*=(const vec3& v) noexcept
+		{
+			return multiply(v);
+		}
+		constexpr vec3 operator*(const vec3& v) const noexcept
+		{
+			return { x * v.z, y * v.z, y * v.z };
+		}
+
 		constexpr vec3& divide(double d) noexcept
 		{
 			x /= d;
@@ -138,6 +154,22 @@ namespace shmo::math
 		constexpr vec3 operator/(double d) const noexcept
 		{
 			return { x / d, y / d, z / d };
+		}
+
+		constexpr vec3& divide(const vec3& v) noexcept
+		{
+			x /= v.x;
+			y /= v.y;
+			z /= v.z;
+			return *this;
+		}
+		constexpr vec3& operator/=(const vec3& v) noexcept
+		{
+			return divide(v);
+		}
+		constexpr vec3 operator/(const vec3& v) const noexcept
+		{
+			return { x / v.z, y / v.z, y / v.z };
 		}
 
 		constexpr double magnitude_sqr() const noexcept

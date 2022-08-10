@@ -3,13 +3,10 @@
 
 int main()
 {
-	using shmo::math::mat3x3;
-	using shmo::math::vec2;
-	using shmo::math::mat4x4;
-	using shmo::math::vec3;
+	using namespace shmo::math;
 
 	mat4x4 trn, rot, scl, fin, inv;
-	vec3 v{ 0, 0, 0 };
+	vec3 v = { 0, 0, 0 };
 
 	trn = mat4x4::translation(5, 0, 0);
 	rot = mat4x4::rotation(0, 0, 0);
