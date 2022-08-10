@@ -65,6 +65,10 @@ namespace shmo::math
 		{
 			return equals(v);
 		}
+		constexpr bool operator!=(const vec2& v) const noexcept
+		{
+			return !equals(v);
+		}
 
 		constexpr vec2& add(const vec2& v) noexcept
 		{
@@ -191,7 +195,7 @@ namespace shmo::math
 			return *this;
 		}
 
-		constexpr vec2 operator-() noexcept
+		constexpr vec2 operator-() const noexcept
 		{
 			return vec2(*this).negate();
 		}

@@ -96,6 +96,10 @@ namespace shmo::math
 		{
 			return equals(m);
 		}
+		constexpr bool operator!=(const mat4x4& m) const noexcept
+		{
+			return !equals(m);
+		}
 
 		constexpr mat4x4& multiply(const mat4x4& m) noexcept
 		{
@@ -132,7 +136,7 @@ namespace shmo::math
 			return mat4x4(*this).multiply(m);
 		}
 
-		constexpr vec3 forward(const vec3& v) noexcept
+		constexpr vec3 forward(const vec3& v) const noexcept
 		{
 			double x, y, z;
 
@@ -289,7 +293,7 @@ namespace shmo::math
 			return *this;
 		}
 
-		constexpr mat4x4 operator!()
+		constexpr mat4x4 operator!() const
 		{
 			return mat4x4(*this).invert();
 		}

@@ -75,6 +75,10 @@ namespace shmo::math
 		{
 			return equals(v);
 		}
+		constexpr bool operator!=(const vec3& v) const noexcept
+		{
+			return !equals(v);
+		}
 
 		constexpr vec3& add(const vec3& v) noexcept
 		{
@@ -208,6 +212,19 @@ namespace shmo::math
 		static inline vec3 scale(const vec3& v, double d) noexcept
 		{
 			return vec3(v).scale(d);
+		}
+
+		constexpr vec3& negate() noexcept
+		{
+			x = -x;
+			y = -y;
+			z = -z;
+			return *this;
+		}
+
+		constexpr vec3 operator-() const noexcept
+		{
+			return vec3(*this).negate();
 		}
 
 		constexpr double dot(const vec3& v) const noexcept

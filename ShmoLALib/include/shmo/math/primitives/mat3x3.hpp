@@ -90,6 +90,10 @@ namespace shmo::math
 		{
 			return equals(m);
 		}
+		constexpr bool operator!=(const mat3x3& m) const noexcept
+		{
+			return !equals(m);
+		}
 
 		constexpr mat3x3& multiply(const mat3x3& m) noexcept
 		{
@@ -118,7 +122,7 @@ namespace shmo::math
 			return mat3x3(*this).multiply(m);
 		}
 
-		constexpr vec2 forward(const vec2& v) noexcept
+		constexpr vec2 forward(const vec2& v) const noexcept
 		{
 			double x, y;
 
@@ -154,7 +158,7 @@ namespace shmo::math
 			return set(r);
 		}
 
-		constexpr mat3x3 operator!()
+		constexpr mat3x3 operator!() const
 		{
 			return mat3x3(*this).invert();
 		}

@@ -85,6 +85,10 @@ namespace shmo::math
 		{
 			return equals(v);
 		}
+		constexpr bool operator!=(const vec4& v) const noexcept
+		{
+			return !equals(v);
+		}
 
 		constexpr vec4& add(const vec4& v) noexcept
 		{
@@ -214,6 +218,20 @@ namespace shmo::math
 		{
 			normalize();
 			multiply(d);
+		}
+
+		constexpr vec4& negate() noexcept
+		{
+			x = -x;
+			y = -y;
+			z = -z;
+			w = -w;
+			return *this;
+		}
+
+		constexpr vec4 operator-() const noexcept
+		{
+			return vec4(*this).negate();
 		}
 
 		static inline vec4 normalize(const vec4& v) noexcept
