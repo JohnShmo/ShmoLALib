@@ -249,21 +249,6 @@ namespace shmo::math
 			return (x * v.x) + (y * v.y) + (z * v.z) + (w * v.w);
 		}
 	};
-
-	constexpr std::array<double, 4> to_array(const vec4& v)
-	{
-		return { v.x, v.y, v.z, v.w };
-	}
-
-	inline std::string to_string(const vec4& v)
-	{
-		return std::format("( {:10f} {:10f} {:10f} {:10f} )", v.x, v.y, v.z, v.w);
-	}
-
-	inline std::ostream& operator<<(std::ostream& os, const vec4& v)
-	{
-		return os << to_string(v);
-	}
 }
 
 #endif

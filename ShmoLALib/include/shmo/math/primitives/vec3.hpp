@@ -241,21 +241,6 @@ namespace shmo::math
 			return result;
 		}
 	};
-
-	constexpr std::array<double, 3> to_array(const vec3& v)
-	{
-		return { v.x, v.y, v.z };
-	}
-
-	inline std::string to_string(const vec3& v)
-	{
-		return std::format("( {:10f} {:10f} {:10f} )", v.x, v.y, v.z);
-	}
-
-	inline std::ostream& operator<<(std::ostream& os, const vec3& v)
-	{
-		return os << to_string(v);
-	}
 }
 
 #endif

@@ -219,21 +219,6 @@ namespace shmo::math
 			return x * v.y - y * v.x;
 		}
 	};
-
-	constexpr std::array<double, 2> to_array(const vec2& v)
-	{
-		return { v.x, v.y };
-	}
-	
-	inline std::string to_string(const vec2& v)
-	{
-		return std::format("( {:10f} {:10f} )", v.x, v.y);
-	}
-	
-	inline std::ostream& operator<<(std::ostream& os, const vec2& v)
-	{
-		return os << to_string(v);
-	}	
 }
 
 #endif

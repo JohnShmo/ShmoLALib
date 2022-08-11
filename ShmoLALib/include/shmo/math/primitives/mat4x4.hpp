@@ -423,28 +423,6 @@ namespace shmo::math
 		}
 
 	};
-
-	constexpr std::array<double, 16> to_array(const mat4x4& m)
-	{
-		return { m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8], m[9], m[10], m[11], m[12], m[13], m[14], m[15] };
-	}
-
-	inline std::string to_string(const mat4x4& m)
-	{
-		return std::format
-		(
-			"| {:10f} {:10f} {:10f} {:10f} |\n| {:10f} {:10f} {:10f} {:10f} |\n| {:10f} {:10f} {:10f} {:10f} |\n| {:10f} {:10f} {:10f} {:10f} |",
-			m.c0r0, m.c1r0, m.c2r0,	m.c3r0,
-			m.c0r1, m.c1r1, m.c2r1,	m.c3r1,
-			m.c0r2, m.c1r2, m.c2r2,	m.c3r2,
-			m.c0r3, m.c1r3, m.c2r3,	m.c3r3
-		);
-	}
-
-	inline std::ostream& operator<<(std::ostream& os, const mat4x4& m)
-	{
-		return os << to_string(m);
-	}
 }
 
 

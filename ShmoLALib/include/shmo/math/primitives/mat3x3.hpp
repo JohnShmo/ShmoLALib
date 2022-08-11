@@ -240,27 +240,6 @@ namespace shmo::math
 			return shear(v.x, v.y);
 		}
 	};
-
-	constexpr std::array<double, 9> to_array(const mat3x3& m)
-	{
-		return { m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8] };
-	}
-
-	inline std::string to_string(const mat3x3& m)
-	{
-		return std::format
-		(
-			"| {:10f} {:10f} {:10f} |\n| {:10f} {:10f} {:10f} |\n| {:10f} {:10f} {:10f} |",
-			m.c0r0, m.c1r0, m.c2r0,
-			m.c0r1, m.c1r1, m.c2r1,
-			m.c0r2, m.c1r2, m.c2r2
-		);
-	}
-
-	inline std::ostream& operator<<(std::ostream& os, const mat3x3& m)
-	{
-		return os << to_string(m);
-	}
 }
 
 

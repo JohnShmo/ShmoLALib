@@ -163,6 +163,7 @@
     <ClCompile Include="src\math.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\shmo\math\array_utils.hpp" />
     <ClInclude Include="include\shmo\math\color_utils.hpp" />
     <ClInclude Include="include\shmo\math\constants.hpp" />
     <ClInclude Include="include\shmo\math\primitives\internal\math_primitive_includes.hpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="include\shmo\math\primitives.hpp" />
     <ClInclude Include="include\shmo\math\primitives\vec3.hpp" />
     <ClInclude Include="include\shmo\math\primitives\vec4.hpp" />
+    <ClInclude Include="include\shmo\math\string_utils.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

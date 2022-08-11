@@ -25,8 +25,8 @@ namespace shmo::math
 	constexpr vec3 hex_to_vec3(uint32_t color) noexcept
 	{
 		uint8_t r = static_cast<uint8_t>((color / 256 / 256) % 256);
-		uint8_t g = static_cast<uint8_t>((color / 256) % 256);
-		uint8_t b = static_cast<uint8_t>((color) % 256);
+		uint8_t g = static_cast<uint8_t>((color / 256      ) % 256);
+		uint8_t b = static_cast<uint8_t>((color            ) % 256);
 		return rgb_to_vec3(r, g, b);
 	}
 

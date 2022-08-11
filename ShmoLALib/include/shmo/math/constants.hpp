@@ -1,8 +1,6 @@
 #ifndef ___SHMO_LA_CONSTANTS_HPP___
 #define ___SHMO_LA_CONSTANTS_HPP___
 
-#include <cmath>
-
 namespace shmo::math::constants
 {
 	constexpr double PI{ 3.14159265358979323846 };
