@@ -40,11 +40,13 @@ namespace shmo::math
 
 		constexpr double operator[](size_t index) const noexcept
 		{
-			return v[index % size()];
+			if (index > size()) return v[size() - 1];
+			else return v[index];
 		}
 		constexpr double& operator[](size_t index) noexcept
 		{
-			return v[index % size()];
+			if (index > size()) return v[size() - 1];
+			else return v[index];
 		}
 
 		constexpr const double* data() const noexcept { return &c0r0; }

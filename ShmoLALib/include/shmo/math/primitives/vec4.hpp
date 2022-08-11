@@ -34,16 +34,16 @@ namespace shmo::math
 
 		constexpr double operator[](size_t index) const noexcept
 		{
-			if (index % 4 == 0) return x;
-			else if (index % 4 == 1) return y;
-			else if (index % 4 == 2) return z;
+			if (index == 0) return x;
+			else if (index == 1) return y;
+			else if (index == 2) return z;
 			else return w;
 		}
 		constexpr double& operator[](size_t index) noexcept
 		{
-			if (index % 4 == 0) return x;
-			else if (index % 4 == 1) return y;
-			else if (index % 4 == 2) return z;
+			if (index == 0) return x;
+			else if (index == 1) return y;
+			else if (index == 2) return z;
 			else return w;
 		}
 

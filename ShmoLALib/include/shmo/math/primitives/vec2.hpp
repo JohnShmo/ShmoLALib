@@ -22,12 +22,12 @@ namespace shmo::math
 
 		constexpr double operator[](size_t index) const noexcept
 		{
-			if (index % 2 == 0) return x;
+			if (index == 0) return x;
 			else return y;
 		}
 		constexpr double& operator[](size_t index) noexcept
 		{
-			if (index % 2 == 0) return x;
+			if (index == 0) return x;
 			else return y;
 		}
 
