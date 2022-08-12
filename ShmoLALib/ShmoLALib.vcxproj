@@ -72,22 +72,22 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)/bin/</OutDir>
+    <OutDir>$(ProjectDir)/bin/</OutDir>
     <IntDir>$(ProjectDir)/obj/</IntDir>
     <PublicIncludeDirectories>$(ProjectDir)/include/</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)/bin/</OutDir>
+    <OutDir>$(ProjectDir)/bin/</OutDir>
     <IntDir>$(ProjectDir)/obj/</IntDir>
     <PublicIncludeDirectories>$(ProjectDir)/include/</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)/bin/</OutDir>
+    <OutDir>$(ProjectDir)/bin/</OutDir>
     <IntDir>$(ProjectDir)/obj/</IntDir>
     <PublicIncludeDirectories>$(ProjectDir)/include/</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)/bin/</OutDir>
+    <OutDir>$(ProjectDir)/bin/</OutDir>
     <IntDir>$(ProjectDir)/obj/</IntDir>
     <PublicIncludeDirectories>$(ProjectDir)/include/</PublicIncludeDirectories>
   </PropertyGroup>
@@ -168,9 +168,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\shmo\math\array_utils.hpp" />
+    <ClInclude Include="include\shmo\math\circle.hpp" />
     <ClInclude Include="include\shmo\math\color_utils.hpp" />
     <ClInclude Include="include\shmo\math\constants.hpp" />
-    <ClInclude Include="include\shmo\math\line2d.hpp" />
+    <ClInclude Include="include\shmo\math\line.hpp" />
     <ClInclude Include="include\shmo\math\primitives\internal\math_primitive_includes.hpp" />
     <ClInclude Include="include\shmo\math\primitives\mat3x3.hpp" />
     <ClInclude Include="include\shmo\math\primitives\mat4x4.hpp" />
@@ -179,7 +180,7 @@
     <ClInclude Include="include\shmo\math\primitives.hpp" />
     <ClInclude Include="include\shmo\math\primitives\vec3.hpp" />
     <ClInclude Include="include\shmo\math\primitives\vec4.hpp" />
-    <ClInclude Include="include\shmo\math\box2d.hpp" />
+    <ClInclude Include="include\shmo\math\rect.hpp" />
     <ClInclude Include="include\shmo\math\string_utils.hpp" />
     <ClInclude Include="include\shmo\math\transform2d.hpp" />
   </ItemGroup>

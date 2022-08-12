@@ -14,50 +14,14 @@ namespace shmo::math
 		transform2d() noexcept:
 			translation(mat3x3::translation(0.0, 0.0)), rotation(mat3x3::rotation(0)), scale(mat3x3::scale(1.0, 1.0))
 		{}
+		
+		constexpr transform2d(const transform2d& other) noexcept:
+			translation(other.translation), rotation(other.rotation), scale(other.scale)
+		{}
 
 		transform2d(const vec2& translation, auto rotation = 0, const vec2& scale = { 1.0, 1.0 }) noexcept :
 			translation(mat3x3::translation(translation)), rotation(mat3x3::rotation(rotation)), scale(mat3x3::scale(scale))
 		{}
-
-		constexpr mat3x3 operator[](size_t index) const noexcept
-		{
-			if (index == 0) return translation;
-			else if (index == 1) return rotation;
-			else return scale;
-		}
-		constexpr mat3x3& operator[](size_t index) noexcept
-		{
-			if (index == 0) return translation;
-			else if (index == 1) return rotation;
-			else return scale;
-		}
-
-		constexpr const mat3x3* data() const noexcept
-		{
-			return &translation;
-		}
-		constexpr mat3x3* data() noexcept
-		{
-			return &translation;
-		}
-
-		constexpr const mat3x3* begin() const noexcept
-		{
-			return &translation;
-		}
-		constexpr mat3x3* begin() noexcept
-		{
-			return &translation;
-		}
-
-		constexpr const mat3x3* end() const noexcept
-		{
-			return (&scale) + 1;
-		}
-		constexpr mat3x3* end() noexcept
-		{
-			return (&scale) + 1;
-		}
 
 		constexpr bool equals(const transform2d& trn) const noexcept
 		{
@@ -87,6 +51,14 @@ namespace shmo::math
 			this->translation = mat3x3::translation(translation);
 			this->rotation = mat3x3::rotation(rotation);
 			this->scale = mat3x3::scale(scale);
+			return *this;
+		}
+		
+		constexpr transform2d& set(const transform2d& trn) noexcept
+		{
+			translation = trn.translation;
+			rotation = trn.rotation;
+			scale = trn.scale;
 			return *this;
 		}
 

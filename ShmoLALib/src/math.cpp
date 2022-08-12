@@ -21,7 +21,7 @@ int main()
 {
 	using namespace shmo::math;
 
-	box2d box = { -0.5, -0.5, 1.0, 1.0 };
+	rect box = { -0.5, -0.5, 1.0, 1.0 };
 	transform2d trn;
 	vec2 tl, tr, bl, br;
 
