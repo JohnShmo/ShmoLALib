@@ -218,6 +218,10 @@ namespace shmo::math
 		{
 			return x * v.y - y * v.x;
 		}
+		inline double distance(const vec2& v) const noexcept
+		{
+			return std::sqrt((v.x - x) * (v.x - x) + (v.y - y) * (v.y - y));
+		}
 	};
 }
 

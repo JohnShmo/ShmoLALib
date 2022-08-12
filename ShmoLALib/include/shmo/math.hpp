@@ -3,6 +3,7 @@
 
 #include "math/primitives.hpp"
 #include "math/constants.hpp"
+#include "math/line.hpp"
 #include "math/color_utils.hpp"
 #include "math/string_utils.hpp"
 #include "math/array_utils.hpp"

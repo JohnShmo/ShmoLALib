@@ -240,6 +240,10 @@ namespace shmo::math
 			result.z = x * v.y - y * v.x;
 			return result;
 		}
+		inline double distance(const vec3& v) const noexcept
+		{
+			return std::sqrt((v.x - x) * (v.x - x) + (v.y - y) * (v.y - y) + (v.z - z) * (v.z - z));
+		}
 	};
 }
 

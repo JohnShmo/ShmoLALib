@@ -5,12 +5,27 @@ int main()
 {
 	using namespace shmo::math;
 
-	vec3 col = hex_to_vec3(0xffe5b0);
-	std::cout << col << '\n';
-	uint32_t h = vec3_to_hex(col);
-	std::cout << h << '\n';
-	col = hex_to_vec3(h);
-	std::cout << col << '\n';
+	mat3x3 translation, rotation, scale, result;
+
+	translation = mat3x3::translation(5, 0);
+	rotation = mat3x3::rotation(constants::PI);
+	scale = mat3x3::scale(2, 2);
+
+	result = translation * rotation * scale;
+
+	vec2 position = { 3, 9 };
+
+	std::cout << position << '\n';
+
+	position = result.forward(position);
+
+	std::cout << position << '\n';
+
+	result.invert();
+
+	position = result.forward(position);
+
+	std::cout << position << '\n';
 
 	return 0;
 }
