@@ -56,7 +56,13 @@
     <ClInclude Include="include\shmo\math\array_utils.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\shmo\math\line.hpp">
+    <ClInclude Include="include\shmo\math\line2d.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shmo\math\box2d.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\shmo\math\transform2d.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

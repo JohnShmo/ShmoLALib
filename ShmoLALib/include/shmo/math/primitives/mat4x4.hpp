@@ -295,7 +295,7 @@ namespace shmo::math
 			return *this;
 		}
 
-		constexpr mat4x4 operator!() const
+		constexpr mat4x4 operator~() const
 		{
 			return mat4x4(*this).invert();
 		}

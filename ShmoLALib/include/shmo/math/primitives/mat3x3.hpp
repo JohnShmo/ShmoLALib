@@ -160,7 +160,7 @@ namespace shmo::math
 			return set(r);
 		}
 
-		constexpr mat3x3 operator!() const
+		constexpr mat3x3 operator~() const
 		{
 			return mat3x3(*this).invert();
 		}
